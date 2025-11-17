@@ -12,7 +12,7 @@ interface PostCardProps {
 
 export function PostCard({ post }: PostCardProps) {
   return (
-    <Card className="flex flex-col overflow-hidden transition-all hover:shadow-lg">
+    <Card className="flex flex-col overflow-hidden transition-all hover:shadow-md border-transparent hover:border-border">
       {post.imageUrl && (
         <Link href={`/posts/${post.id}`} className="block">
           <div className="aspect-video relative overflow-hidden">

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Code, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Icons } from '@/components/icons';
 
 export default function LandingPage() {
@@ -14,10 +14,8 @@ export default function LandingPage() {
       </header>
       <main className="flex-1 flex items-center justify-center">
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
-          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-4000"></div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight">
             Добро пожаловать в CodeVerse
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground">
