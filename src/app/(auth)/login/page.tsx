@@ -8,32 +8,32 @@ export default function LoginPage() {
   return (
     <Card>
       <CardHeader className="text-center">
-        <CardTitle>Welcome Back</CardTitle>
-        <CardDescription>Log in to your CodeVerse account</CardDescription>
+        <CardTitle>С возвращением</CardTitle>
+        <CardDescription>Войдите в свой аккаунт CodeVerse</CardDescription>
       </CardHeader>
       <CardContent>
         <form className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email">Электронная почта</Label>
             <Input id="email" type="email" placeholder="m@example.com" required />
           </div>
           <div className="space-y-2">
             <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">Пароль</Label>
                 <Link href="#" className="ml-auto inline-block text-sm underline">
-                    Forgot password?
+                    Забыли пароль?
                 </Link>
             </div>
             <Input id="password" type="password" required />
           </div>
           <Button type="submit" className="w-full">
-            Log in
+            Войти
           </Button>
         </form>
         <div className="mt-4 text-center text-sm">
-          Don't have an account?{' '}
+          Нет аккаунта?{' '}
           <Link href="/signup" className="underline">
-            Sign up
+            Зарегистрироваться
           </Link>
         </div>
       </CardContent>

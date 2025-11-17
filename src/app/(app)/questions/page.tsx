@@ -19,15 +19,15 @@ export default async function QuestionsPage() {
     <div className="space-y-8">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Questions</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Вопросы</h1>
           <p className="text-muted-foreground">
-            Ask the community or share your expertise by answering questions.
+            Спросите сообщество или поделитесь своим опытом, отвечая на вопросы.
           </p>
         </div>
         <Button asChild>
           <Link href="/questions/ask">
             <PlusCircle className="mr-2 h-4 w-4" />
-            Ask Question
+            Задать вопрос
           </Link>
         </Button>
       </div>
@@ -35,19 +35,19 @@ export default async function QuestionsPage() {
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="relative w-full md:max-w-sm">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search by tag..." className="pl-8" />
+          <Input placeholder="Поиск по тегу..." className="pl-8" />
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="w-full md:w-auto">
               <ArrowUpDown className="mr-2 h-4 w-4" />
-              Sort by: Newest
+              Сортировать по: Новые
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>Newest</DropdownMenuItem>
-            <DropdownMenuItem>Most Voted</DropdownMenuItem>
-            <DropdownMenuItem>Unanswered</DropdownMenuItem>
+            <DropdownMenuItem>Новые</DropdownMenuItem>
+            <DropdownMenuItem>Самые голосуемые</DropdownMenuItem>
+            <DropdownMenuItem>Без ответа</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

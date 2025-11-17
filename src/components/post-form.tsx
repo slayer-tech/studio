@@ -31,13 +31,13 @@ import { Sparkles, Loader2, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const postFormSchema = z.object({
-  title: z.string().min(5, "Title must be at least 5 characters.").max(100),
+  title: z.string().min(5, "Заголовок должен содержать не менее 5 символов.").max(100),
   content: z
     .string()
-    .min(20, "Content must be at least 20 characters.")
+    .min(20, "Содержание должно содержать не менее 20 символов.")
     .max(5000),
-  topic: z.string().nonempty("Please select a topic."),
-  tags: z.array(z.string()).max(5, "You can add up to 5 tags."),
+  topic: z.string().nonempty("Пожалуйста, выберите тему."),
+  tags: z.array(z.string()).max(5, "Вы можете добавить до 5 тегов."),
 });
 
 type PostFormValues = z.infer<typeof postFormSchema>;
@@ -61,8 +61,8 @@ export function PostForm() {
   function onSubmit(data: PostFormValues) {
     console.log(data);
     toast({
-        title: "Post Submitted!",
-        description: "Your post has been successfully submitted for review.",
+        title: "Пост отправлен!",
+        description: "Ваш пост был успешно отправлен на проверку.",
     })
   }
 
@@ -71,8 +71,8 @@ export function PostForm() {
     if (content.length < 20) {
       toast({
         variant: "destructive",
-        title: "Content too short",
-        description: "Please write at least 20 characters to get AI suggestions.",
+        title: "Слишком короткое содержание",
+        description: "Пожалуйста, напишите не менее 20 символов, чтобы получить предложения от ИИ.",
       });
       return;
     }
@@ -83,7 +83,7 @@ export function PostForm() {
       } else {
         toast({
           variant: "destructive",
-          title: "AI Suggestion Failed",
+          title: "Ошибка предложения ИИ",
           description: result.message,
         });
       }
@@ -117,7 +117,7 @@ export function PostForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <Card>
           <CardHeader>
-            <CardTitle>Create a new post</CardTitle>
+            <CardTitle>Создать новый пост</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             <FormField
@@ -125,9 +125,9 @@ export function PostForm() {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>Заголовок</FormLabel>
                   <FormControl>
-                    <Input placeholder="The Future of..." {...field} />
+                    <Input placeholder="Будущее..." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -138,10 +138,10 @@ export function PostForm() {
               name="content"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Content</FormLabel>
+                  <FormLabel>Содержание</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Share your thoughts, discoveries, or news..."
+                      placeholder="Поделитесь своими мыслями, открытиями или новостями..."
                       className="min-h-[200px]"
                       {...field}
                     />
@@ -157,11 +157,11 @@ export function PostForm() {
                 name="topic"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Topic</FormLabel>
+                    <FormLabel>Тема</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a topic" />
+                          <SelectValue placeholder="Выберите тему" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -182,7 +182,7 @@ export function PostForm() {
                 name="tags"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tags</FormLabel>
+                    <FormLabel>Теги</FormLabel>
                     <FormControl>
                         <div>
                             <div className="flex flex-wrap gap-2 mb-2">
@@ -196,7 +196,7 @@ export function PostForm() {
                                 ))}
                             </div>
                             <Input 
-                                placeholder="Add up to 5 tags..."
+                                placeholder="Добавьте до 5 тегов..."
                                 value={tagInput}
                                 onChange={(e) => setTagInput(e.target.value)}
                                 onKeyDown={handleTagKeyDown}
@@ -205,7 +205,7 @@ export function PostForm() {
                         </div>
                     </FormControl>
                     <FormDescription>
-                        Press Enter or comma to add a tag.
+                        Нажмите Enter или запятую, чтобы добавить тег.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -220,11 +220,11 @@ export function PostForm() {
                 ) : (
                   <Sparkles className="mr-2 h-4 w-4" />
                 )}
-                Suggest Tags with AI
+                Предложить теги с помощью ИИ
               </Button>
               {suggestedTags.length > 0 && (
                 <div className="mt-4 space-y-2">
-                    <p className="text-sm text-muted-foreground">Click to add a suggested tag:</p>
+                    <p className="text-sm text-muted-foreground">Нажмите, чтобы добавить предложенный тег:</p>
                     <div className="flex flex-wrap gap-2">
                         {suggestedTags.map((tag) => (
                             <Badge key={tag} variant="outline" className="cursor-pointer" onClick={() => {addTag(tag); setSuggestedTags(suggestedTags.filter(t => t !== tag))}}>
@@ -240,7 +240,7 @@ export function PostForm() {
         </Card>
 
         <div className="flex justify-end">
-          <Button type="submit">Submit Post</Button>
+          <Button type="submit">Отправить пост</Button>
         </div>
       </form>
     </Form>

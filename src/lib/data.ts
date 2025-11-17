@@ -3,10 +3,10 @@ import { TOPICS } from './constants';
 import { PlaceHolderImages } from './placeholder-images';
 
 const users: User[] = [
-  { id: 'u1', name: 'Alex Doe', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar1')?.imageUrl || '', title: 'Full Stack Developer' },
-  { id: 'u2', name: 'Jane Smith', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar2')?.imageUrl || '', title: 'UI/UX Designer' },
-  { id: 'u3', name: 'Sam Wilson', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar3')?.imageUrl || '', title: 'DevOps Engineer' },
-  { id: 'u4', name: 'Maria Garcia', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar4')?.imageUrl || '', title: 'Product Manager' },
+  { id: 'u1', name: 'Алексей Петров', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar1')?.imageUrl || '', title: 'Full Stack разработчик' },
+  { id: 'u2', name: 'Елена Смирнова', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar2')?.imageUrl || '', title: 'UI/UX дизайнер' },
+  { id: 'u3', name: 'Сэм Уилсон', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar3')?.imageUrl || '', title: 'DevOps инженер' },
+  { id: 'u4', name: 'Мария Гарсия', avatarUrl: PlaceHolderImages.find(p => p.id === 'avatar4')?.imageUrl || '', title: 'Менеджер по продукту' },
 ];
 
 const tags: Tag[] = [
@@ -21,13 +21,13 @@ const tags: Tag[] = [
 export const posts: Post[] = [
   {
     id: 'p1',
-    title: 'The Future of Web Development with Next.js 15',
-    content: 'Next.js 15 brings a ton of new features that will change how we build web applications. From improved performance to new APIs, this version is a game-changer for React developers...',
+    title: 'Будущее веб-разработки с Next.js 15',
+    content: 'Next.js 15 предлагает множество новых функций, которые изменят то, как мы создаем веб-приложения. От улучшенной производительности до новых API, эта версия — настоящий прорыв для React-разработчиков...',
     imageUrl: PlaceHolderImages.find(p => p.id === 'postImage1')?.imageUrl || '',
     imageHint: PlaceHolderImages.find(p => p.id === 'postImage1')?.imageHint,
-    createdAt: '2 days ago',
+    createdAt: '2 дня назад',
     author: users[0],
-    topic: TOPICS[1], // Programming
+    topic: TOPICS[1], // Программирование
     tags: [tags[0], tags[2], tags[3]],
     stats: {
       likes: 128,
@@ -37,13 +37,13 @@ export const posts: Post[] = [
   },
   {
     id: 'p2',
-    title: 'Designing for Accessibility: A Comprehensive Guide',
-    content: 'Accessibility is not an afterthought. In this post, we explore the core principles of accessible design and provide practical tips for creating inclusive user experiences in Figma and beyond.',
+    title: 'Проектирование для доступности: полное руководство',
+    content: 'Доступность — это не второстепенная задача. В этом посте мы исследуем основные принципы доступного дизайна и даем практические советы по созданию инклюзивного пользовательского опыта в Figma и за ее пределами.',
     imageUrl: PlaceHolderImages.find(p => p.id === 'postImage2')?.imageUrl || '',
     imageHint: PlaceHolderImages.find(p => p.id === 'postImage2')?.imageHint,
-    createdAt: '5 days ago',
+    createdAt: '5 дней назад',
     author: users[1],
-    topic: TOPICS[2], // Design
+    topic: TOPICS[2], // Дизайн
     tags: [tags[4]],
     stats: {
       likes: 95,
@@ -53,13 +53,13 @@ export const posts: Post[] = [
   },
   {
     id: 'p3',
-    title: 'Generative AI takes another leap forward',
-    content: 'A new breakthrough in generative AI was announced today, promising to accelerate development in various fields. The model shows incredible capabilities in code generation and natural language understanding.',
+    title: 'Генеративный ИИ делает еще один шаг вперед',
+    content: 'Сегодня было объявлено о новом прорыве в области генеративного ИИ, который обещает ускорить развитие в различных областях. Модель демонстрирует невероятные возможности в генерации кода и понимании естественного языка.',
     imageUrl: PlaceHolderImages.find(p => p.id === 'postImage3')?.imageUrl || '',
     imageHint: PlaceHolderImages.find(p => p.id === 'postImage3')?.imageHint,
-    createdAt: '1 day ago',
+    createdAt: '1 день назад',
     author: users[3],
-    topic: TOPICS[0], // News
+    topic: TOPICS[0], // Новости
     tags: [tags[5]],
     stats: {
       likes: 256,
@@ -69,13 +69,13 @@ export const posts: Post[] = [
   },
   {
     id: 'p4',
-    title: 'Navigating Your Career Path in Tech',
-    content: 'The tech industry is constantly evolving. How do you stay relevant and grow your career? This post discusses strategies for continuous learning, networking, and finding your niche.',
+    title: 'Навигация по карьерному пути в IT',
+    content: 'IT-индустрия постоянно развивается. Как оставаться востребованным и развивать свою карьеру? В этом посте обсуждаются стратегии непрерывного обучения, нетворкинга и поиска своей ниши.',
     imageUrl: PlaceHolderImages.find(p => p.id === 'postImage4')?.imageUrl || '',
     imageHint: PlaceHolderImages.find(p => p.id === 'postImage4')?.imageHint,
-    createdAt: '1 week ago',
+    createdAt: '1 неделю назад',
     author: users[2],
-    topic: TOPICS[3], // Career
+    topic: TOPICS[3], // Карьера
     tags: [],
     stats: {
       likes: 72,
@@ -88,9 +88,9 @@ export const posts: Post[] = [
 export const questions: Question[] = [
     {
         id: 'q1',
-        title: 'How to properly handle state management in large-scale React applications?',
-        content: 'I\'m working on a large project and struggling with prop-drilling and complex state logic. I\'ve looked into Redux, Zustand, and Context API, but I\'m not sure which one is the best fit. What are the pros and cons of each in a modern React (with hooks) environment?',
-        createdAt: '3 hours ago',
+        title: 'Как правильно управлять состоянием в крупных React-приложениях?',
+        content: 'Я работаю над большим проектом и борюсь с пробросом пропсов и сложной логикой состояния. Я рассмотрел Redux, Zustand и Context API, но не уверен, что из этого лучше всего подходит. Каковы плюсы и минусы каждого в современной среде React (с хуками)?',
+        createdAt: '3 часа назад',
         author: users[0],
         tags: [tags[0], tags[1]],
         stats: {
@@ -101,9 +101,9 @@ export const questions: Question[] = [
     },
     {
         id: 'q2',
-        title: 'What are the best practices for responsive design in Tailwind CSS?',
-        content: 'I find myself writing a lot of responsive utility classes like `md:`, `lg:`, etc. Is there a more efficient way to structure my components to be inherently responsive? How do you approach mobile-first design with Tailwind?',
-        createdAt: '1 day ago',
+        title: 'Каковы лучшие практики адаптивного дизайна в Tailwind CSS?',
+        content: 'Я обнаружил, что пишу много адаптивных служебных классов, таких как `md:`, `lg:` и т. д. Есть ли более эффективный способ структурировать мои компоненты, чтобы они были по своей сути адаптивными? Как вы подходите к дизайну mobile-first с Tailwind?',
+        createdAt: '1 день назад',
         author: users[1],
         tags: [tags[3], tags[4]],
         stats: {

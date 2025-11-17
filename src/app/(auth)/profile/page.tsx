@@ -10,12 +10,12 @@ export default function ProfilePage() {
     email: 'alex.doe@example.com',
     title: 'Full Stack Developer',
     avatarUrl: 'https://picsum.photos/seed/1/100/100',
-    joined: 'January 2023',
+    joined: 'Январь 2023',
   };
 
   return (
     <div className="space-y-6">
-        <h1 className="text-3xl font-bold tracking-tight text-center">My Profile</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-center">Мой профиль</h1>
       <Card>
         <CardHeader>
           <div className="flex flex-col items-center gap-4 text-center">
@@ -27,18 +27,18 @@ export default function ProfilePage() {
               <CardTitle className="text-2xl">{user.name}</CardTitle>
               <CardDescription>{user.title}</CardDescription>
             </div>
-            <Button>Edit Profile</Button>
+            <Button>Редактировать профиль</Button>
           </div>
         </CardHeader>
         <CardContent>
           <Separator className="my-4" />
           <div className="space-y-2 text-sm text-muted-foreground">
             <div className="flex justify-between">
-              <span>Email:</span>
+              <span>Электронная почта:</span>
               <span className="font-medium text-foreground">{user.email}</span>
             </div>
             <div className="flex justify-between">
-              <span>Joined:</span>
+              <span>Присоединился:</span>
               <span className="font-medium text-foreground">{user.joined}</span>
             </div>
           </div>
@@ -46,10 +46,10 @@ export default function ProfilePage() {
       </Card>
       <Card>
         <CardHeader>
-            <CardTitle>My Activity</CardTitle>
+            <CardTitle>Моя активность</CardTitle>
         </CardHeader>
         <CardContent>
-            <p className="text-muted-foreground">Your posts and questions will appear here.</p>
+            <p className="text-muted-foreground">Ваши посты и вопросы появятся здесь.</p>
         </CardContent>
       </Card>
     </div>

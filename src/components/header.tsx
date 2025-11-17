@@ -30,14 +30,14 @@ export function Header() {
             className="flex items-center gap-1 transition-colors hover:text-foreground/80 text-foreground/60"
           >
             <Code className="h-4 w-4" />
-            Posts
+            Посты
           </Link>
           <Link
             href="/questions"
             className="flex items-center gap-1 transition-colors hover:text-foreground/80 text-foreground/60"
           >
             <HelpCircle className="h-4 w-4" />
-            Questions
+            Вопросы
           </Link>
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
@@ -46,7 +46,7 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src="https://picsum.photos/seed/1/100/100" alt="User" />
+                    <AvatarImage src="https://picsum.photos/seed/1/100/100" alt="Пользователь" />
                     <AvatarFallback>U</AvatarFallback>
                   </Avatar>
                 </Button>
@@ -54,7 +54,7 @@ export function Header() {
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">User Name</p>
+                    <p className="text-sm font-medium leading-none">Имя пользователя</p>
                     <p className="text-xs leading-none text-muted-foreground">
                       user@example.com
                     </p>
@@ -62,20 +62,20 @@ export function Header() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href="/profile" className="w-full">Profile</Link>
+                  <Link href="/profile" className="w-full">Профиль</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="#" className="w-full">Logout</Link>
+                  <Link href="#" className="w-full">Выйти</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
             <div className="flex items-center gap-2">
               <Button asChild variant="ghost" size="sm">
-                <Link href="/login">Log in</Link>
+                <Link href="/login">Войти</Link>
               </Button>
               <Button asChild size="sm">
-                <Link href="/signup">Sign up</Link>
+                <Link href="/signup">Регистрация</Link>
               </Button>
             </div>
           )}

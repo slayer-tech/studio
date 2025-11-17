@@ -43,15 +43,15 @@ export function QuestionCard({ question }: QuestionCardProps) {
         <div className="flex items-center gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-1.5">
             <ThumbsUp className="h-4 w-4" />
-            <span>{question.stats.votes} Votes</span>
+            <span>{question.stats.votes} Голосов</span>
           </div>
           <div className="flex items-center gap-1.5">
             <MessageCircle className="h-4 w-4" />
-            <span>{question.stats.answers} Answers</span>
+            <span>{question.stats.answers} Ответов</span>
           </div>
           <div className="flex items-center gap-1.5">
             <Eye className="h-4 w-4" />
-            <span>{question.stats.views} Views</span>
+            <span>{question.stats.views} Просмотров</span>
           </div>
         </div>
       </CardFooter>

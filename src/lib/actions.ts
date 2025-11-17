@@ -4,7 +4,7 @@ import { suggestRelevantTags } from "@/ai/flows/suggest-relevant-tags";
 import { z } from "zod";
 
 const SuggestTagsSchema = z.object({
-  postContent: z.string().min(10, "Post content is too short."),
+  postContent: z.string().min(10, "Содержание поста слишком короткое."),
 });
 
 type FormState = {
@@ -31,16 +31,16 @@ export async function getAiTagSuggestions(
     });
     
     if (result && result.tags) {
-        return { success: true, message: "Tags suggested.", tags: result.tags };
+        return { success: true, message: "Теги предложены.", tags: result.tags };
     } else {
-        return { success: false, message: "AI could not suggest any tags." };
+        return { success: false, message: "ИИ не смог предложить теги." };
     }
 
   } catch (error) {
     console.error("Error suggesting tags:", error);
     return {
       success: false,
-      message: "An unexpected error occurred while suggesting tags.",
+      message: "Произошла непредвиденная ошибка при предложении тегов.",
     };
   }
 }

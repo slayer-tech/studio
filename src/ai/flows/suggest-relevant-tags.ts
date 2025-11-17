@@ -29,14 +29,14 @@ const prompt = ai.definePrompt({
   name: 'suggestRelevantTagsPrompt',
   input: {schema: SuggestRelevantTagsInputSchema},
   output: {schema: SuggestRelevantTagsOutputSchema},
-  prompt: `You are a helpful assistant that suggests relevant tags for a given post.
+  prompt: `Вы — услужливый помощник, который предлагает релевантные теги для определенной публикации.
 
-  Given the following post content, suggest 5 relevant tags that can be used to categorize the post.
+  Учитывая следующее содержание публикации, предложите 5 релевантных тегов, которые можно использовать для классификации публикации.
 
-  Post Content: {{{postContent}}}
+  Содержание публикации: {{{postContent}}}
   
-  Ensure that the tags are relevant to the content and are general enough to be useful for categorization.
-  Return the tags as a JSON array of strings.
+  Убедитесь, что теги соответствуют содержанию и являются достаточно общими, чтобы их можно было использовать для категоризации.
+  Верните теги в виде массива строк JSON.
   `,
 });
 

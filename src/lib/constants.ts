@@ -1,9 +1,9 @@
 import type { Topic } from './types';
 
 export const TOPICS: Topic[] = [
-  { id: 't1', name: 'News', slug: 'news', description: 'Latest news in the tech world.' },
-  { id: 't2', name: 'Programming', slug: 'programming', description: 'Discussions about code, algorithms, and frameworks.' },
-  { id: 't3', name: 'Design', slug: 'design', description: 'All about UI/UX, graphics, and aesthetics.' },
-  { id: 't4', name: 'Career', slug: 'career', description: 'Career advice, job opportunities, and growth.' },
-  { id: 't5', name: 'Off-topic', slug: 'off-topic', description: 'For everything else.' },
+  { id: 't1', name: 'Новости', slug: 'news', description: 'Последние новости из мира технологий.' },
+  { id: 't2', name: 'Программирование', slug: 'programming', description: 'Обсуждения кода, алгоритмов и фреймворков.' },
+  { id: 't3', name: 'Дизайн', slug: 'design', description: 'Все о UI/UX, графике и эстетике.' },
+  { id: 't4', name: 'Карьера', slug: 'career', description: 'Советы по карьере, вакансии и профессиональный рост.' },
+  { id: 't5', name: 'Офф-топик', slug: 'off-topic', description: 'Для всего остального.' },
 ];
