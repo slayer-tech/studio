@@ -163,6 +163,7 @@ export const questions: Question[] = [
 ];
 
 export const getPosts = async ({ page = 1, limit = 6 }: { page?: number, limit?: number } = {}) => {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
     const start = (page - 1) * limit;
     const end = start + limit;
     const paginatedPosts = posts.slice(start, end);
@@ -171,9 +172,16 @@ export const getPosts = async ({ page = 1, limit = 6 }: { page?: number, limit?:
 }
 
 export const getPostById = async (id: string): Promise<Post | undefined> => {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
     return posts.find(p => p.id === id);
 }
 
 export const getQuestions = async () => {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
     return questions;
+}
+
+export const getQuestionById = async (id: string): Promise<Question | undefined> => {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+    return questions.find(q => q.id === id);
 }
