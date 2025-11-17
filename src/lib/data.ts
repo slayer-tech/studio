@@ -1,4 +1,4 @@
-import type { User, Post, Question, Tag } from './types';
+import type { User, Post, Question, Tag, Answer } from './types';
 import { TOPICS } from './constants';
 import { PlaceHolderImages } from './placeholder-images';
 
@@ -143,7 +143,7 @@ export const questions: Question[] = [
         tags: [tags[0], tags[1]],
         stats: {
             votes: 15,
-            answers: 4,
+            answers: 2,
             views: 250,
         },
     },
@@ -159,6 +159,41 @@ export const questions: Question[] = [
             answers: 2,
             views: 450,
         },
+    }
+];
+
+const answers: Answer[] = [
+    {
+        id: 'a1',
+        questionId: 'q1',
+        content: 'Zustand — отличный выбор для большинства случаев. Он прост в использовании, требует минимум шаблонного кода и обеспечивает высокую производительность. Redux может быть избыточным, если у вас нет сложного глобального состояния.',
+        createdAt: '2 часа назад',
+        author: users[2],
+        votes: 5,
+    },
+    {
+        id: 'a2',
+        questionId: 'q1',
+        content: 'Я бы порекомендовал начать с React Context для простых случаев. Если вы заметите проблемы с производительностью из-за частых перерисовок, переходите на Zustand или Jotai. Redux Toolkit также хороший вариант, но с большей кривой входа.',
+        createdAt: '1 час назад',
+        author: users[3],
+        votes: 10,
+    },
+    {
+        id: 'a3',
+        questionId: 'q2',
+        content: 'Ключ к адаптивному дизайну в Tailwind — это подход mobile-first. Сначала стилизуйте для мобильных устройств, а затем используйте префиксы `sm:`, `md:`, `lg:` для переопределения на больших экранах. Это делает ваш CSS более чистым.',
+        createdAt: '20 часов назад',
+        author: users[0],
+        votes: 4,
+    },
+    {
+        id: 'a4',
+        questionId: 'q2',
+        content: 'Используйте компонентный подход. Создавайте переиспользуемые компоненты, которые инкапсулируют свою адаптивность. Например, карточка, которая меняет свой макет с flex-col на flex-row на `md` брейкпоинте.',
+        createdAt: '15 часов назад',
+        author: users[2],
+        votes: 2,
     }
 ];
 
@@ -184,4 +219,9 @@ export const getQuestions = async () => {
 export const getQuestionById = async (id: string): Promise<Question | undefined> => {
     await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
     return questions.find(q => q.id === id);
+}
+
+export const getAnswersByQuestionId = async (questionId: string): Promise<Answer[]> => {
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate network delay
+    return answers.filter(a => a.questionId === questionId);
 }

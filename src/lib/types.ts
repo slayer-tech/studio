@@ -50,6 +50,7 @@ export type Question = {
 
 export type Answer = {
   id: string;
+  questionId: string;
   content: string;
   createdAt: string;
   author: User;
