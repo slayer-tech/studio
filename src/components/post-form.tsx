@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -26,8 +26,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TOPICS } from "@/lib/constants";
-import { getAiTagSuggestions } from "@/lib/actions";
-import { Sparkles, Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const postFormSchema = z.object({
@@ -43,8 +42,6 @@ const postFormSchema = z.object({
 type PostFormValues = z.infer<typeof postFormSchema>;
 
 export function PostForm() {
-  const [isPending, startTransition] = useTransition();
-  const [suggestedTags, setSuggestedTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState("");
   const { toast } = useToast();
 
@@ -64,30 +61,6 @@ export function PostForm() {
         title: "Пост отправлен!",
         description: "Ваш пост был успешно отправлен на проверку.",
     })
-  }
-
-  function handleAiSuggest() {
-    const content = form.getValues("content");
-    if (content.length < 20) {
-      toast({
-        variant: "destructive",
-        title: "Слишком короткое содержание",
-        description: "Пожалуйста, напишите не менее 20 символов, чтобы получить предложения от ИИ.",
-      });
-      return;
-    }
-    startTransition(async () => {
-      const result = await getAiTagSuggestions(content);
-      if (result.success && result.tags) {
-        setSuggestedTags(result.tags);
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Ошибка предложения ИИ",
-          description: result.message,
-        });
-      }
-    });
   }
 
   function addTag(tag: string) {
@@ -212,30 +185,6 @@ export function PostForm() {
                 )}
               />
             </div>
-            
-            <div>
-              <Button type="button" variant="outline" onClick={handleAiSuggest} disabled={isPending}>
-                {isPending ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Sparkles className="mr-2 h-4 w-4" />
-                )}
-                Предложить теги с помощью ИИ
-              </Button>
-              {suggestedTags.length > 0 && (
-                <div className="mt-4 space-y-2">
-                    <p className="text-sm text-muted-foreground">Нажмите, чтобы добавить предложенный тег:</p>
-                    <div className="flex flex-wrap gap-2">
-                        {suggestedTags.map((tag) => (
-                            <Badge key={tag} variant="outline" className="cursor-pointer" onClick={() => {addTag(tag); setSuggestedTags(suggestedTags.filter(t => t !== tag))}}>
-                                {tag}
-                            </Badge>
-                        ))}
-                    </div>
-                </div>
-              )}
-            </div>
-
           </CardContent>
         </Card>
 
