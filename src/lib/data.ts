@@ -83,6 +83,54 @@ export const posts: Post[] = [
       comments: 21,
     },
   },
+  {
+    id: 'p5',
+    title: 'Пятый пост для пагинации',
+    content: 'Это содержимое пятого поста, созданного для демонстрации работы пагинации на сайте. Проверяем, как все отображается.',
+    imageUrl: 'https://picsum.photos/seed/5/600/400',
+    imageHint: 'abstract technology',
+    createdAt: '2 недели назад',
+    author: users[0],
+    topic: TOPICS[4],
+    tags: [tags[1]],
+    stats: {
+      likes: 50,
+      views: 1200,
+      comments: 10,
+    },
+  },
+  {
+    id: 'p6',
+    title: 'Шестой пост для пагинации',
+    content: 'Это содержимое шестого поста, созданного для демонстрации работы пагинации на сайте. Проверяем, как все отображается.',
+    imageUrl: 'https://picsum.photos/seed/6/600/400',
+    imageHint: 'abstract technology',
+    createdAt: '2 недели назад',
+    author: users[1],
+    topic: TOPICS[1],
+    tags: [tags[0], tags[3]],
+    stats: {
+      likes: 60,
+      views: 1300,
+      comments: 12,
+    },
+  },
+  {
+    id: 'p7',
+    title: 'Седьмой пост для пагинации',
+    content: 'Это содержимое седьмого поста, созданного для демонстрации работы пагинации на сайте. Проверяем, как все отображается.',
+    imageUrl: 'https://picsum.photos/seed/7/600/400',
+    imageHint: 'abstract technology',
+    createdAt: '3 недели назад',
+    author: users[2],
+    topic: TOPICS[2],
+    tags: [tags[4]],
+    stats: {
+      likes: 70,
+      views: 1400,
+      comments: 14,
+    },
+  },
 ];
 
 export const questions: Question[] = [
@@ -114,8 +162,16 @@ export const questions: Question[] = [
     }
 ];
 
-export const getPosts = async () => {
-    return posts;
+export const getPosts = async ({ page = 1, limit = 6 }: { page?: number, limit?: number } = {}) => {
+    const start = (page - 1) * limit;
+    const end = start + limit;
+    const paginatedPosts = posts.slice(start, end);
+    const totalPages = Math.ceil(posts.length / limit);
+    return { posts: paginatedPosts, totalPages };
+}
+
+export const getPostById = async (id: string): Promise<Post | undefined> => {
+    return posts.find(p => p.id === id);
 }
 
 export const getQuestions = async () => {

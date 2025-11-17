@@ -11,9 +11,15 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
+import { PaginationComponent } from '@/components/pagination';
 
-export default async function PostsPage() {
-  const posts = await getPosts();
+export default async function PostsPage({
+  searchParams,
+}: {
+  searchParams?: { page?: string };
+}) {
+  const currentPage = Number(searchParams?.page) || 1;
+  const { posts, totalPages } = await getPosts({ page: currentPage });
 
   return (
     <div className="space-y-8">
@@ -53,11 +59,19 @@ export default async function PostsPage() {
       </div>
       <Separator />
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
-      </div>
+      {posts.length > 0 ? (
+        <>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {posts.map((post) => (
+                <PostCard key={post.id} post={post} />
+                ))}
+            </div>
+            <PaginationComponent currentPage={currentPage} totalPages={totalPages} />
+        </>
+        ) : (
+        <p className="text-center text-muted-foreground">Посты не найдены.</p>
+      )}
+
     </div>
   );
 }
